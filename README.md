@@ -1,10 +1,10 @@
 # WhatsCooking
----
+
 WhatsCooking is a web application that helps you search and organize recipes. Together with helpufl tools to create shopping lists and weekly meal-plan. 
 
 
 ## Developed using:
----
+
 * HTML5
 * CSS
 * React
