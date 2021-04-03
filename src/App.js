@@ -1,8 +1,8 @@
 import './App.css';
 import { Route, BrowserRouter } from "react-router-dom";
-import Header from './Components/Header';
+import Header from './Components/HomePage/Header';
 import HomePage from './Components/HomePage/HomePage';
-import Recipes from './Components/Recipes';
+import RecipesPage from './Components/Recipes/RecipesPage';
 
 function App() {
   return (
@@ -11,7 +11,7 @@ function App() {
         <div>
           <Header />
           <Route path="/" exact component={HomePage} />
-          <Route path="/recipes" exact component={Recipes} />
+          <Route path="/recipes" exact component={RecipesPage} />
         </div>
       </BrowserRouter>
     </div>
