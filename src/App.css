@@ -14,6 +14,11 @@ html{
   font-size: 10px;
 }
 
+a{
+  text-decoration: none;
+  color:var(--main-text-color);
+}
+
 /*  ------------------------  Header ----------------------- */
 
 .header{
@@ -41,38 +46,46 @@ html{
 /*  -------------------------- Category Card ------------------*/
 
 .categoryCard{
-  /* margin:3rem; */
-  width:60rem;
-  height: 60rem;
+  cursor: pointer;
+  margin:2rem;
+  width:100%;
+  /* height: 40rem; */
+}
+
+.categoryCardImg{
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  width:100%;
+  height: 40rem;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 #breakfastImg{
-  position: relative;
   width: 60rem;
   height:50rem;
+}
+
+.categoryCardText{
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+  background-color: white;
+  line-height: 6rem;
+  height: 6rem;
+  padding: 0 1rem;
+  opacity: 0.8;
+  width:100%;
 }
 
 #breakfastImg .categoryCardImg{
   width:60rem;
   height: 50rem;
   background-image:url('./Assets/breakfast.jpeg') ;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
 }
 
-#breakfastImg .categoryCardText{
-  position: absolute;
-  bottom:0;
-  text-align: center;
-  font-size: 2rem;
-  margin:0.5rem 0;
-  font-weight: bold;
-  background-color: white;
-  line-height: 6rem;
-  height: 6rem;
-  padding: 0 1rem;
-}
 
 
 /*  -------------------------- Recipes Page ------------------*/
@@ -102,6 +115,13 @@ html{
   color:white;
 }
 
+.categoryGrid{
+  margin:auto;
+  width:80vw;
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap:2rem;
+}
 
 /*  -------------------------- searchResultCard Component ------------------*/
 .searchResultCard{

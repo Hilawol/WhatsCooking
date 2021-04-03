@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import SearchResultCard from './SearchResultCard'
 
 function RecipesList({ recipes }) {
@@ -9,7 +10,7 @@ function RecipesList({ recipes }) {
 
   return (
     <div className="recipesGrid">
-      {recipes.map(r => <SearchResultCard key={r.id} recipe={r} onCardClick={() => onRecipeClick} />)}
+      {recipes.map(r => <Link to={`/recipes/${r.id}`}><SearchResultCard key={r.id} recipe={r} onCardClick={() => onRecipeClick} /></Link>)}
     </div>
   )
 }
