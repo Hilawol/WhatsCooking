@@ -8,9 +8,12 @@ function RecipesList({ recipes }) {
     console.log("user clicked on reciep:", id);
   }
 
+  console.log("recipelist: recipes", recipes);
   return (
     <div className="recipesGrid">
-      {recipes.map(r => <Link to={`/recipes/${r.id}`}><SearchResultCard key={r.id} recipe={r} onCardClick={() => onRecipeClick} /></Link>)}
+      {recipes.map(r => <Link key={r.id} to={{ pathname: `/recipes/${r.id}}`, state: { recipe: r, } }}>
+        <SearchResultCard recipe={r} onRecipeClick={() => onRecipeClick} /></Link>)}
+        RecipeList
     </div>
   )
 }
