@@ -5,7 +5,7 @@ import RecipesList from './RecipesList';
 import CategoryCard from '../HomePage/CategoryCard'
 import cusineImg from '../../Assets/Cuisine.jpeg'
 import dietImg from '../../Assets/diet.jpeg'
-import ingrediantsImg from '../../Assets/ingrediants.jpeg'
+// import ingrediantsImg from '../../Assets/ingrediants.jpeg'
 import mealTypesImg from '../../Assets/mealTypes.jpeg'
 const apiKey = "apiKey=8c4cf547f295464a9c0b9fe358a906ed";
 
@@ -41,7 +41,6 @@ function Recipes() {
       recipe.summary = d.summary;
       recipe.extendedIngredients = d.extendedIngredients;
       return recipe;
-      console.log(recipe);
     });
     setRecipeList(recipes);
     console.log(recipes);
