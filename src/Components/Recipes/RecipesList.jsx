@@ -13,7 +13,6 @@ function RecipesList({ recipes }) {
     <div className="recipesGrid">
       {recipes.map(r => <Link key={r.id} to={{ pathname: `/recipes/${r.id}}`, state: { recipe: r, } }}>
         <SearchResultCard recipe={r} onRecipeClick={() => onRecipeClick} /></Link>)}
-        RecipeList
     </div>
   )
 }

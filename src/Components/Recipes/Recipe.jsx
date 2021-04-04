@@ -7,14 +7,14 @@ function Recipe(props) {
   console.log("in recipe:", recipe);
   return (
     <div className="recipe">
-      <Link to="/recipes">Back to search results...</Link>
+      <Link to="/recipes"> <i class="fas fa-long-arrow-alt-left"></i> Back</Link>
       <br />
       <div className="recipeHero">
         <div className="recipeImg" style={{ backgroundImage: `url(${recipe.image})` }}></div>
         <div className="recipeHeroText">
           <h1 className="recipeTitle">{recipe.title}</h1>
           <br />
-          <span>Prep time:{recipe.readyInMinutes} Servings:{recipe.servings}</span>
+          <span><i class="fas fa-stopwatch"></i> {recipe.readyInMinutes}&nbsp;min&nbsp;&nbsp;&nbsp; <i class="fas fa-utensils"></i> {recipe.servings}</span>
           <br />
           <p>{recipe.summary}</p>
         </div>

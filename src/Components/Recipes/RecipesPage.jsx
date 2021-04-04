@@ -29,7 +29,6 @@ function Recipes() {
   const joinInformationArrays = (data) => {
     let recipes = [...recipeList];
     recipes = data.map(d => {
-      // const detailedRecipe = data.filter(d => d.id === r.id);
       let recipe = {};
       recipe.id = d.id;
       recipe.title = d.title;
@@ -50,11 +49,11 @@ function Recipes() {
    * @param {Array} ids - array of recipes id's to fetch more information. 
    */
   const fetchRecipesInformation = async (ids) => {
-    console.log(ids);
-    const url = `recipes/informationBulk?${apiKey}&ids=${ids.join(',')}`
-    const { data } = await api.get(url);
-    console.log(data);
-    joinInformationArrays(data);
+    // console.log(ids);
+    // const url = `recipes/informationBulk?${apiKey}&ids=${ids.join(',')}`
+    // const { data } = await api.get(url);
+    // console.log(data);
+    // joinInformationArrays(data);
   }
 
   /**
@@ -69,6 +68,7 @@ function Recipes() {
     // console.log(data.results);
     // setRecipeList(data.results);
     // fetchRecipesInformation(data.results.map(r => r.id)); 
+
     //For development only:
 
     data = [{ id: 667704, title: "Shrimp, Bacon, Avocado Pasta Salad ", image: "https://spoonacular.com/recipeImages/667704-312x231.jpg", imageType: "jpg" },

@@ -8,9 +8,7 @@ function HomePage() {
         <CategoryCard id="breakfastImg" text="Get new breakfast ideas" />
         <CategoryCard id="breakfastImg" text="Get new breakfast ideas" />
         <CategoryCard id="breakfastImg" text="Get new breakfast ideas" />
-
       </div>
-
     </div>
   )
 }

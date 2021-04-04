@@ -17,7 +17,7 @@ function Search({ searchFunc }) {
   return (
     <div className="searchDiv">
       <input className="searchInput" placeholder="What do you feel like eating?" onChange={handleInput} value={term}></input>
-      <button className="searchBtn" onClick={onSearch}>Search</button>
+      <button className="searchBtn" onClick={onSearch}><i class="fas fa-search"></i></button>
     </div>
   )
 }

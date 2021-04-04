@@ -27,13 +27,32 @@ a{
   justify-content: center;
   height: 5rem;
   background-color: var(--light-grey);
+  justify-content: start;
 }
 
+.logo{
+  width: 12rem;
+  height: 4.5rem;
+  background-image:url('./Assets/logo.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin: 0 4rem 0 2rem;
+
+}
 .navBtn{
+  display: flex;
+  height: 5rem;
+  align-items: center;
   margin:1rem;
   text-decoration: none;
   color:var(--main-text-color);
   font-size: 1.5rem;
+}
+
+.navBtn:hover{
+  border-bottom: 2px solid var(--dark-green);
+  font-weight: bold;
 }
 
 /*  -------------------------- HomePage ------------------*/
@@ -90,7 +109,7 @@ a{
 
 /*  -------------------------- Recipes Page ------------------*/
 .searchDiv{
-  height: 10rem;
+  height: 15rem;
   background-color: var(--light-green);
   display: flex;
   align-items: center;
@@ -113,6 +132,10 @@ a{
   width: 5rem;
   background-color:var(--dark-green);
   color:white;
+}
+
+.fa-search{
+  font-size: 2rem;
 }
 
 .categoryGrid{
