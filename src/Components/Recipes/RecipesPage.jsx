@@ -12,6 +12,7 @@ function Recipes(props) {
 
   const [recipeList, setRecipeList] = useState(data);
   const [searchState, setSearchState] = useState("collection"); //searchState="collection"/"all"
+  const [foundRecipes, setFoundRecipes] = useState(true);
 
   useEffect(() => {
     console.log(props);
@@ -55,6 +56,7 @@ function Recipes(props) {
 
     const { data } = await api.get(url + term);
 
+    setFoundRecipes(true);
     switch (type) {
       case "complex":
         setRecipeList(data.results);
@@ -66,6 +68,9 @@ function Recipes(props) {
         break;
       default:
     }
+
+
+
     console.log(data);
 
     //For development only:
@@ -101,7 +106,9 @@ function Recipes(props) {
       </div>
 
       {searchState === "all" ?
-        <RecipesList recipes={recipeList} /> :
+        !foundRecipes ? <div><div className="noResultMessage">Could not find recipes</div> <RecipesList recipes={recipeList} /></div> :
+          <RecipesList recipes={recipeList} />
+        :
         <div className="categoryGrid">
           {categories.map(c => <CategoryCard key={c.id} id={c.id} text={c.text} image={c.image} onClick={onCategoryClick} />)}
         </div>

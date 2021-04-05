@@ -11,7 +11,7 @@ function RecipesList({ recipes }) {
   console.log("recipelist: recipes", recipes);
   return (
     <div className="recipesGrid">
-      {recipes.map(r => <Link key={r.id} to={`/recipes/${r.id}`}>
+      { recipes.map(r => <Link key={r.id} to={`/recipes/${r.id}`}>
         <SearchResultCard recipe={r} onRecipeClick={() => onRecipeClick} /></Link>)}
     </div>
   )
