@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-function Search({ searchFunc }) {
+function Search({ onSearchbarClick }) {
 
   const [term, setTerm] = useState("");
 
@@ -11,13 +11,13 @@ function Search({ searchFunc }) {
 
   const onSearch = () => { //TODO: input validation 
     console.log("search for:", term);
-    searchFunc(term);
+    onSearchbarClick(term);
   }
 
   return (
     <div className="searchDiv">
       <input className="searchInput" placeholder="What do you feel like eating?" onChange={handleInput} value={term}></input>
-      <button className="searchBtn" onClick={onSearch}><i class="fas fa-search"></i></button>
+      <button className="searchBtn" ><i className="fas fa-search" onClick={onSearch}></i></button>
     </div>
   )
 }

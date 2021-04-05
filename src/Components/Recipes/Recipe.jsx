@@ -1,26 +1,71 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import api from '../Api/api'
+const apiKey = "apiKey=8c4cf547f295464a9c0b9fe358a906ed";
 
 
 function Recipe(props) {
-  const { recipe } = props.location.state;
-  console.log("in recipe:", recipe);
-  return (
+
+  const [recipe, setRecipe] = useState(null);
+  const [id, setId] = useState(null);
+
+  useEffect(async () => {
+
+    //TODO:try/catch
+    //TODO:add spinner to all api calls
+    //TODO:check local storage functionality
+    const fetchRecipeInformation = async (id) => {
+      console.log("fetch:", id);
+      const url = `recipes/${id}/information?${apiKey}&includeNutrition=true`
+      const { data } = await api.get(url);
+      return data;
+    }
+
+    if (!id) {
+      setId(props.match.params.id);
+    }
+
+    let recipe = JSON.parse(localStorage.getItem(`recipe${id}`));
+    console.log("in local storage:", `recipe${id}`)
+
+    if (!recipe) {
+      console.log("didnot found storage", props.match.params.id);
+      recipe = await fetchRecipeInformation(props.match.params.id);
+    }
+    setRecipe(recipe);
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem(`recipe${id}`, JSON.stringify(recipe));
+    console.log(recipe);
+  }, [recipe])
+
+  const parseHtmlToString = (html) => {
+    if (html) {
+      var stripedHtml = html.replace(/<[^>]+>/g, '');
+      return stripedHtml;
+    }
+  }
+
+  return (recipe ?
     <div className="recipe">
-      <Link to="/recipes"> <i class="fas fa-long-arrow-alt-left"></i> Back</Link>
+      <Link to={{ pathname: '/recipes', searchState: "all" }} > <i className="fas fa-long-arrow-alt-left"></i> Back</Link>
       <br />
       <div className="recipeHero">
         <div className="recipeImg" style={{ backgroundImage: `url(${recipe.image})` }}></div>
         <div className="recipeHeroText">
           <h1 className="recipeTitle">{recipe.title}</h1>
           <br />
-          <span><i class="fas fa-stopwatch"></i> {recipe.readyInMinutes}&nbsp;min&nbsp;&nbsp;&nbsp; <i class="fas fa-utensils"></i> {recipe.servings}</span>
+          <span><i className="fas fa-stopwatch"></i> {recipe.readyInMinutes}&nbsp;min&nbsp;&nbsp;&nbsp; <i className="fas fa-utensils"></i> {recipe.servings}</span>
           <br />
-          <p>{recipe.summary}</p>
+          <p className="recipeSummary">{parseHtmlToString(recipe.summary)}</p>
         </div>
       </div>
-      <div>{recipe.instructions}</div>
+      <h1 className="recipeInstructionsTitle">INSTRUCTIONS</h1>
+      <br />
+      <div className="recipeInstructions">{parseHtmlToString(recipe.instructions)}</div>
     </div>
+    : null
   )
 }
 

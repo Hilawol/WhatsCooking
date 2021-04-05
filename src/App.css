@@ -27,7 +27,7 @@ a{
   justify-content: center;
   height: 5rem;
   background-color: var(--light-grey);
-  justify-content: start;
+  justify-content: flex-start;
 }
 
 .logo{
@@ -107,7 +107,7 @@ a{
 
 
 
-/*  -------------------------- Recipes Page ------------------*/
+/*  -------------------------- RecipesPage ------------------*/
 .searchDiv{
   height: 15rem;
   background-color: var(--light-green);
@@ -135,6 +135,7 @@ a{
 }
 
 .fa-search{
+  cursor: pointer;
   font-size: 2rem;
 }
 
@@ -146,27 +147,47 @@ a{
   gap:2rem;
 }
 
+.searchStateBtnDiv{
+  width:max-content;
+  margin:0 auto;
+}
+
+.searchStateBtn{
+  font-size: 2rem;
+  background-color: transparent;
+  margin:2rem;
+  cursor: pointer;
+}
+
+.currentState{
+  border-bottom: 2px solid var(--dark-green);
+  font-weight: bold;
+}
+
 /*  -------------------------- searchResultCard Component ------------------*/
 .searchResultCard{
   margin:2rem;
   /* width: 30rem; */
   width: 100%;
-  /* height: 25rem; */
+  height: 35rem;
 }
 
 .searchResultCardImg{
   /* width:30rem; */
   width: 100%;
   height:30rem;
+  max-height: 30rem;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-
 }
+
 .searchResultCardTitle{
-  margin:1.5rem;
+  margin:1.5rem 0;
+  text-align: left;
+  font-size: 2rem;
+  font-weight: bold;
   text-align: center;
-  font-size: 1.5rem;
 }
 
 /*  -------------------------- RecipesList Component ------------------*/
@@ -177,7 +198,6 @@ a{
   gap:3rem;
   grid-template-columns: repeat(3,1fr);
 }
-
 
 /*  -------------------------- Recipe Component ------------------*/
 
@@ -199,7 +219,8 @@ a{
 }
 
 .recipeHeroText{
-  margin:0 2rem;
+  margin:auto ;
+  padding:3rem;
   width:100%;
   display: flex;
   flex-direction: column;
@@ -209,4 +230,26 @@ a{
 .recipeTitle{
   font-size: 2.5rem;
   text-align: center;
+}
+
+.recipeSummary{
+  font-size: 1.5rem;
+  text-align: center;
+  margin:3rem 0;
+}
+.recipeInstructionsTitle{
+  margin: 1rem 0;
+}
+
+.recipeInstructions{
+  font-size: 1.5rem;
+}
+
+.fa-stopwatch, .fa-utensils{
+  font-size: 2rem;
+  color:var(--dark-green);
+}
+
+.recipe span{
+  font-size:1.5
 }
