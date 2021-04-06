@@ -1,5 +1,5 @@
 import React from 'react'
-import CategoryCard from '../HomePage/CategoryCard'
+// import CategoryCard from '../HomePage/CategoryCard'
 
 function HomePage() {
   return (

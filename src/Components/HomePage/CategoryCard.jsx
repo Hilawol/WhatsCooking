@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import categories from '../Recipes/utils'
+import { categories } from '../Recipes/utils'
 
 function CategoryCard({ id, text, image, onClick, searchCatId }) {
 
@@ -16,9 +16,6 @@ function CategoryCard({ id, text, image, onClick, searchCatId }) {
   const subCatList = <ul className="categoryCardTextGrid">
     {((categories.find(c => c.id === id)).subCat).map(cat => { return <li key={cat}>{cat}</li> })}
   </ul>
-
-
-
 
   return (
     <div className="categoryCard" id={id} onMouseEnter={() => { onCatClick() }} onMouseLeave={() => { onCatClick() }}>

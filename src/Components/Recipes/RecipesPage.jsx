@@ -3,7 +3,7 @@ import SearchBar from './SearchBar'
 import api from '../Api/api'
 import RecipesList from './RecipesList';
 import CategoryCard from '../HomePage/CategoryCard'
-import categories from './utils'
+import { categories } from './utils'
 const apiKey = "apiKey=8c4cf547f295464a9c0b9fe358a906ed";
 
 function Recipes(props) {
@@ -112,7 +112,6 @@ function Recipes(props) {
         <div className="categoryGrid">
           {categories.map(c => <CategoryCard key={c.id} id={c.id} text={c.text} image={c.image} onClick={onCategoryClick} />)}
         </div>
-
       }
     </div>
   )

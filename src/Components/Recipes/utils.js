@@ -10,7 +10,7 @@ const categories = [
     text: "Search by Cuisines",
     description: `Search by Cusines.For example: Italian or Chinese`,
     image: cusineImg,
-    subCat: ["African", "American", "British", "Cajun", "Caribbean", "Chinese", "Eastern", "European", "European",
+    subCat: ["African", "American", "British", "Cajun", "Caribbean", "Chinese", "Eastern", "European",
       "French", "German", "Greek", "Indian", "Irish", "Italian", "Japanese", "Jewish", "Korean", "Latin American"
       , "Mediterranean", "Mexican", "Middle Eastern", "Nordic", "Southern", "Spanish", "Thai", "Vietnamese"]
   },
@@ -32,5 +32,11 @@ const categories = [
       "breakfast", "soup", "beverage", "sauce", "marinade", "fingerfood", "snack", "drink"]
   },];
 
+const parseHtmlToString = (html) => {
+  if (html) {
+    var stripedHtml = html.replace(/<[^>]+>/g, '');
+    return stripedHtml;
+  }
+}
 
-export default categories
+export { categories, parseHtmlToString }

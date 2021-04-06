@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import api from '../Api/api'
+import Ingredients from './Ingredients';
+import Instruction from './Instruction';
 const apiKey = "apiKey=8c4cf547f295464a9c0b9fe358a906ed";
 
 
@@ -10,7 +12,6 @@ function Recipe(props) {
   const [id, setId] = useState(null);
 
   useEffect(async () => {
-
     //TODO:try/catch
     //TODO:add spinner to all api calls
     //TODO:check local storage functionality
@@ -38,7 +39,7 @@ function Recipe(props) {
   useEffect(() => {
     localStorage.setItem(`recipe${id}`, JSON.stringify(recipe));
     console.log(recipe);
-  }, [recipe])
+  }, [recipe, id])
 
   const parseHtmlToString = (html) => {
     if (html) {
@@ -58,12 +59,14 @@ function Recipe(props) {
           <br />
           <span><i className="fas fa-stopwatch"></i> {recipe.readyInMinutes}&nbsp;min&nbsp;&nbsp;&nbsp; <i className="fas fa-utensils"></i> {recipe.servings}</span>
           <br />
-          <p className="recipeSummary">{parseHtmlToString(recipe.summary)}</p>
         </div>
       </div>
-      <h1 className="recipeInstructionsTitle">INSTRUCTIONS</h1>
-      <br />
-      <div className="recipeInstructions">{parseHtmlToString(recipe.instructions)}</div>
+      <p className="recipeSummary">{parseHtmlToString(recipe.summary)}</p>
+      <div className="recipeMain">
+        <Instruction instructions={recipe.instructions} analyzedInstructions={recipe.analyzedInstructions} />
+        <Ingredients ingredients={recipe.extendedIngredients} />
+      </div >
+
     </div>
     : null
   )
