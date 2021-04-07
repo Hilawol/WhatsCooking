@@ -10,7 +10,6 @@ function Recipe(props) {
   const [id, setId] = useState(null);
 
   useEffect(async () => {
-    debugger
     //TODO:try/catch
     //TODO:add spinner to all api calls
     //TODO:check local storage functionality

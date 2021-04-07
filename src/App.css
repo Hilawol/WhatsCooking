@@ -372,3 +372,30 @@ hr{
 .fa-exclamation-circle{
   margin:1rem;
 }
+
+
+
+/* --------------------------------------  Media Queries --------------------------------------*/
+
+@media screen and (max-width:375px){
+  .categoryGrid{
+    margin:auto;
+    width:90vw;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap:1rem;
+  }
+.categoryCard{
+  width:100%;
+  margin:unset;
+}
+
+.searchInput{
+  width:65%;
+}
+
+.recipesGrid {
+  width: 80vw;
+  grid-template-columns: 1fr;
+}
+}
