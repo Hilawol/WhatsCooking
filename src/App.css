@@ -377,7 +377,7 @@ hr{
 
 /* --------------------------------------  Media Queries --------------------------------------*/
 
-@media screen and (max-width:375px){
+@media screen and (max-width:550px){
   .categoryGrid{
     margin:auto;
     width:90vw;
