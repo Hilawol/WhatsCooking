@@ -75,10 +75,9 @@ function Recipe(props) {
       </div>
       <p className="recipeSummary">{parseHtmlToString(recipe.summary)}</p>
       <div className="recipeMain">
-        <Instruction instructions={recipe.instructions} analyzedInstructions={recipe.analyzedInstructions} />
         <Ingredients ingredients={recipe.extendedIngredients} />
+        <Instruction instructions={recipe.instructions} analyzedInstructions={recipe.analyzedInstructions} />
       </div >
-
     </div>
     : null
   )
