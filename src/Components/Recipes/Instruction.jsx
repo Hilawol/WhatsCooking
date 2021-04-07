@@ -7,12 +7,10 @@ function Instruction({ instructions, analyzedInstructions }) {
   debugger
   if (analyzedInstructions.length > 0) {
     if (analyzedInstructions[0].steps.length > 0) {
-      console.log(analyzedInstructions);
       content =
         <ol className="insturctionSteps">
           {analyzedInstructions[0].steps.map(step => {
             return <li key={`instructionStep${step.number}`} className="instructionStep">
-              {/* <div className="stepBtn">{step.number}</div> */}
               <p className="stepText">{step.step}</p>
             </li>
           })}

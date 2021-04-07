@@ -5,13 +5,13 @@ function Search({ onSearchbarClick }) {
   const [term, setTerm] = useState("");
 
   const handleInput = (e) => {
-    console.log("input Handler:", e.currentTarget.value);
     setTerm(e.currentTarget.value);
   }
 
   const onSearch = () => { //TODO: input validation 
     console.log("search for:", term);
     onSearchbarClick(term);
+    setTerm("");
   }
 
   return (

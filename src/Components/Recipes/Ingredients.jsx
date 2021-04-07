@@ -5,7 +5,7 @@ function Ingredients({ ingredients }) {
     <div className="recipeIngredients">
       <h1 className="ingredientsTitle">INGREDIENTS</h1>
       <ul>
-        {ingredients.map(i => <li key={ingredients.id}>{i.original}<hr /></li>)}
+        {ingredients.map((i, index) => <li key={`${ingredients.name}${index}`}>{i.original}<hr /></li>)}
       </ul>
     </div>
 

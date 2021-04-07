@@ -19,7 +19,7 @@ a{
   color:var(--main-text-color);
 }
 
-/*  ------------------------  Header ----------------------- */
+/*  ------------------------  Header Component----------------------- */
 
 .header{
   display: flex;
@@ -65,10 +65,9 @@ a{
 /*  -------------------------- Category Card ------------------*/
 
 .categoryCard{
-  cursor: pointer;
+  cursor:pointer;
   margin:2rem;
   width:100%;
-  /* height: 40rem; */
 }
 
 .categoryCardImg{
@@ -82,12 +81,8 @@ a{
   background-size: cover;
 }
 
-#breakfastImg{
-  width: 60rem;
-  height:50rem;
-}
-
 .categoryCardText{
+  overflow: hidden;
   text-align: center;
   font-size: 1.5rem;
   font-weight: bold;
@@ -102,7 +97,7 @@ a{
 }
 
 .categoryCardTextGrid{
-  /* overflow: hidden; */
+  overflow: hidden;
   width: 100%;
   height: 100%;
   display: grid;
@@ -113,7 +108,11 @@ a{
   list-style: none;
   background-color: white;
   opacity: 0.8;
-  /* word-wrap: break-word; */
+}
+
+.subCat:hover{
+  color: var(--dark-green);
+  cursor: pointer;
 }
 
 #breakfastImg .categoryCardImg{
@@ -123,9 +122,10 @@ a{
 }
 
 
-
 /*  -------------------------- RecipesPage ------------------*/
+
 .searchDiv{
+  margin-bottom: 2rem;
   height: 15rem;
   background-color: var(--light-green);
   display: flex;
@@ -166,7 +166,8 @@ a{
 
 .searchStateBtnDiv{
   width:max-content;
-  margin:0 auto;
+  height: 65px;
+  margin:auto;
 }
 
 .searchStateBtn{
@@ -182,15 +183,16 @@ a{
 }
 
 /*  -------------------------- searchResultCard Component ------------------*/
+
 .searchResultCard{
+  cursor: pointer;
   margin:2rem;
-  /* width: 30rem; */
   width: 100%;
   height: 35rem;
 }
 
 .searchResultCardImg{
-  /* width:30rem; */
+  cursor: pointer;
   width: 100%;
   height:30rem;
   max-height: 30rem;
@@ -200,6 +202,7 @@ a{
 }
 
 .searchResultCardTitle{
+  cursor: pointer;
   margin:1.5rem 0;
   text-align: left;
   font-size: 2rem;
@@ -208,6 +211,7 @@ a{
 }
 
 /*  -------------------------- RecipesList Component ------------------*/
+
 .recipesGrid{
   display: grid;
   width: 80vw;
@@ -220,7 +224,6 @@ a{
 
 .recipe{
   background-color:var(--light-grey);
-  /* border: 1px solid black; */
   border-radius: 10px;
   padding:2rem;
   width:60vw;
@@ -237,10 +240,12 @@ a{
 
 .recipeHero{
   display: flex;
+  margin-top: 1rem;
   background-color: var(--light-green);
 }
 
 .recipeHeroText{
+  background-color: white;
   margin:auto ;
   padding:3rem;
   width:60%;
@@ -260,13 +265,38 @@ a{
   margin:3rem 0;
 }
 
-.fa-stopwatch, .fa-utensils{
+.fa-stopwatch, .fa-utensils, .fa-envelope, .fa-whatsapp{
   font-size: 2rem;
   color:var(--dark-green);
+  margin:0 1rem;
+}
+
+.fa-envelope,.fa-whatsapp{
+  cursor: pointer;
+}
+
+.fa-envelope:hover,.fa-whatsapp:hover{
+  color: var(--light-green);
 }
 
 .recipe span{
   font-size:1.5
+}
+
+.backLink{
+  font-size: 1.5rem;
+  padding:1rem;
+  font-weight: bolder;
+  cursor: pointer;
+}
+
+.backLink:hover{
+  color: var(--dark-green);
+}
+
+.recipeActionBtns{
+  display: flex;
+  margin:1rem;
 }
 
 /*  -------------------------- Instruction Component ------------------*/
@@ -283,8 +313,8 @@ a{
 
 .recipeIngredients{
   width:30%;
+  height: fit-content;
   font-size: 1.5rem;
-  /* box-shadow: 5px 5px 8px 3px white; */
   padding: 0 2rem;
   border-radius: 5px;
   border:1px solid white;
@@ -292,7 +322,6 @@ a{
 }
 
 .stepBtn{
-  /* display: flex; */
   align-items: center;
   display: inline-block;
   font-size: 2rem;
@@ -300,8 +329,6 @@ a{
   height:3rem;
   width:3rem;
   text-align: center;
-  /* margin: 0 2rem; */
-  /* background-color: var(--light-green); */
 }
 
 .instructionStep{
@@ -332,4 +359,16 @@ hr{
 
 .recipeIngredients li{
   list-style: none;
+}
+
+.errMsg{
+  margin:2rem;
+  font-size: 1.5rem;
+  color:rgb(197, 5, 5);
+  width:fit-content;
+  margin:auto;
+}
+
+.fa-exclamation-circle{
+  margin:1rem;
 }
