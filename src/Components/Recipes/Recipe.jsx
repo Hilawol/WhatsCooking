@@ -66,7 +66,7 @@ function Recipe(props) {
   ${window.location.href}%0D%0AHope you enjoy it!`
   }
 
-  return loading ? (<div className="loader">Loadgin</div>) :
+  return loading ? (<div className="loader"></div>) :
     recipe ?
       <div className="recipe">
         <Link to={{ pathname: '/recipes', searchState: { searchState: search }, category: { category: category } }} className="backLink"> <i className="fas fa-long-arrow-alt-left"></i> Back</Link>

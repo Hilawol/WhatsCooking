@@ -4,7 +4,7 @@ import { parseHtmlToString } from './utils'
 function Instruction({ instructions, analyzedInstructions }) {
 
   let content;
-  debugger
+
   if (analyzedInstructions.length > 0) {
     if (analyzedInstructions[0].steps.length > 0) {
       content =

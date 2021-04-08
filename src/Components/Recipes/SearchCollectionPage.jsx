@@ -58,7 +58,7 @@ function SearchCollectionPage(props) {
     else setErrorMsg(ERROR_MSG.apiErr);
   }
 
-  return loading ? (<div className="loader">Loadgin</div>) :
+  return loading ? (<div className="loader"></div>) :
     <div>
       <SearchBar onSearchbarClick={onSearch} />
 

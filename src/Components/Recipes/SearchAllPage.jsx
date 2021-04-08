@@ -55,7 +55,7 @@ function SearchAllPage() {
   }
 
 
-  return loading ? (<div className="loader">Loadgin</div>) :
+  return loading ? (<div className="loader"></div>) :
     <div>
       <SearchBar onSearchbarClick={onSearch} />
       <div className="searchStateBtnDiv">
