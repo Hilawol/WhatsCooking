@@ -10,8 +10,10 @@ function SearchAllPage() {
 
   const [recipeList, setRecipeList] = useState([]);
   const [errorMsg, setErrorMsg] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   const searchApi = async (url) => {
+    setLoading(true);
     setErrorMsg(null);
     try {
       const { data } = await api.get(url);
@@ -20,6 +22,9 @@ function SearchAllPage() {
     catch (err) {
       console.log(err);
       setErrorMsg(ERROR_MSG.apiErr);
+    }
+    finally {
+      setLoading(false);
     }
   }
 
@@ -49,7 +54,8 @@ function SearchAllPage() {
     } else setErrorMsg(ERROR_MSG.apiErr);
   }
 
-  return (
+
+  return loading ? (<div className="loader">Loadgin</div>) :
     <div>
       <SearchBar onSearchbarClick={onSearch} />
       <div className="searchStateBtnDiv">
@@ -60,7 +66,6 @@ function SearchAllPage() {
         <ErrMsg msg={errorMsg} />
       }
     </div>
-  )
 }
 
 export default SearchAllPage

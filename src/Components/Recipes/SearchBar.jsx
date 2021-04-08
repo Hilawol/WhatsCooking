@@ -8,8 +8,7 @@ function Search({ onSearchbarClick }) {
     setTerm(e.currentTarget.value);
   }
 
-  const onSearch = () => { //TODO: input validation 
-    console.log("search for:", term);
+  const onSearch = () => {
     onSearchbarClick(term);
     setTerm("");
   }

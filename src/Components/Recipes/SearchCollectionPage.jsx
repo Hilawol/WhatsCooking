@@ -11,14 +11,19 @@ function SearchCollectionPage(props) {
   const [recipeList, setRecipeList] = useState([]);
   const [category, setCategory] = useState(null);
   const [errorMsg, setErrorMsg] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   const searchApi = async (url) => {
+    setLoading(true);
     setErrorMsg(null);
     try {
       const { data } = await api.get(url);
       return data;
     } catch (err) {
       setErrorMsg(ERROR_MSG.apiErr);
+    }
+    finally {
+      setLoading(false);
     }
   }
 
@@ -53,7 +58,7 @@ function SearchCollectionPage(props) {
     else setErrorMsg(ERROR_MSG.apiErr);
   }
 
-  return (
+  return loading ? (<div className="loader">Loadgin</div>) :
     <div>
       <SearchBar onSearchbarClick={onSearch} />
 
@@ -66,7 +71,6 @@ function SearchCollectionPage(props) {
         <ErrMsg msg={errorMsg} />
       }
     </div>
-  )
 }
 
 export default SearchCollectionPage
