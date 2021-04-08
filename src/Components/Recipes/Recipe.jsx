@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom'
 import api from '../Api/api'
 import Ingredients from './Ingredients';
 import Instruction from './Instruction';
-import { ERROR_MSG } from './utils'
+import { ERROR_MSG } from './utils';
+import ErrMsg from './ErrMsg';
 
 function Recipe(props) {
 
@@ -13,8 +14,7 @@ function Recipe(props) {
   const [loading, setLoading] = useState(false);
 
   useEffect(async () => {
-    //TODO:try/catch
-    //TODO:add spinner to all api calls
+
     //TODO:check local storage functionality
     const fetchRecipeInformation = async (id) => {
       setLoading(true);
@@ -23,6 +23,7 @@ function Recipe(props) {
         const { data } = await api.get(url);
         return data;
       } catch (err) {
+        console.log(err);
         setErrorMsg(ERROR_MSG.apiErr);
       }
       finally {
@@ -33,14 +34,24 @@ function Recipe(props) {
     if (!id) {
       setId(props.match.params.id);
     }
-    let recipe = JSON.parse(localStorage.getItem(`recipe${props.match.params.id}`));
 
+    let recipe;
+    try {
+      recipe = JSON.parse(localStorage.getItem(`recipe${props.match.params.id}`));
+    }
+    catch (err) {
+      console.log(err);
+      setErrorMsg(ERROR_MSG.apiErr);
+    }
 
     if (!recipe) {
       recipe = await fetchRecipeInformation(props.match.params.id);
-      localStorage.setItem(`recipe${props.match.params.id}`, JSON.stringify(recipe));
+      if (recipe) {
+        localStorage.setItem(`recipe${props.match.params.id}`, JSON.stringify(recipe));
+        setRecipe(recipe);
+      }
+      else setErrorMsg(ERROR_MSG.apiErr);
     }
-    setRecipe(recipe);
   }, []);
 
   const parseHtmlToString = (html) => {
@@ -90,8 +101,9 @@ function Recipe(props) {
           <Ingredients ingredients={recipe.extendedIngredients} />
           <Instruction instructions={recipe.instructions} analyzedInstructions={recipe.analyzedInstructions} />
         </div >
-      </div>
-      : null
+      </div> :
+      errorMsg ? <ErrMsg msg={errorMsg} /> : null
 }
+
 
 export default Recipe

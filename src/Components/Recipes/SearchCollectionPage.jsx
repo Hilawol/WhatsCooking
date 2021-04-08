@@ -46,7 +46,6 @@ function SearchCollectionPage(props) {
   }, [])
 
   const onSearch = async (term) => {
-    debugger
     const data = await searchApi(`recipes/complexSearch?query=${category.subcategory} ${term}`)
     if (data) {
       if (data.results.length > 0) {

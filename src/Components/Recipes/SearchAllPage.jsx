@@ -38,7 +38,8 @@ function SearchAllPage() {
           sessionStorage.setItem('prevSearchAll', JSON.stringify(data.results));
         }
         else setErrorMsg(ERROR_MSG.notFound);
-      } else setErrorMsg(ERROR_MSG.apiErr);
+      }
+      else setErrorMsg(ERROR_MSG.apiErr);
     }
     getRandomRecipes();
   }, []);
@@ -51,7 +52,8 @@ function SearchAllPage() {
         sessionStorage.setItem('prevSearchAll', JSON.stringify(data.results));
       }
       else setErrorMsg(ERROR_MSG.notFound);
-    } else setErrorMsg(ERROR_MSG.apiErr);
+    }
+    else setErrorMsg(ERROR_MSG.apiErr);
   }
 
 
@@ -62,9 +64,7 @@ function SearchAllPage() {
         <Link to="/recipes/" className="searchStateBtn">Recipe Collections</Link>
         <span className="searchStateBtn currentState" >All Recipes</span>
       </div>
-      {!errorMsg ? < RecipesList recipes={recipeList} /> :
-        <ErrMsg msg={errorMsg} />
-      }
+      {!errorMsg ? < RecipesList recipes={recipeList} /> : <ErrMsg msg={errorMsg} />}
     </div>
 }
 

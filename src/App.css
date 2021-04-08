@@ -414,7 +414,7 @@ hr{
 }
 
 .loader{
-  background: url('../src/Assets/logo.png') center center/contain;
+  background: url('../src/Assets/logo.png') no-repeat center/contain;
   width:99vw;
   height: 80vh;
   text-align: center;

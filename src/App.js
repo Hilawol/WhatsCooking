@@ -17,7 +17,7 @@ function App() {
           <Route path="/recipes" exact component={RecipesPage} />
           <Route path="/recipes/all" exact component={SearchAllPage} />
           <Route path="/recipes/collection/:cat/:sub" exact component={SearchCollectionPage} />
-          <Route path="/recipes/:id" exact component={Recipe} />
+          <Route path="/recipes/recipe/:id" exact component={Recipe} />
         </div>
       </BrowserRouter>
     </div>

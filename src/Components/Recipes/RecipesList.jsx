@@ -9,7 +9,7 @@ function RecipesList({ recipes, searchState, category }) {
 
   return (
     <div className="recipesGrid">
-      { recipes.map(r => <Link key={r.id} to={{ pathname: `/recipes/${r.id}`, searchState: { searchState: searchState }, category: { category: category } }}>
+      { recipes.map(r => <Link key={r.id} to={{ pathname: `/recipes/recipe/${r.id}`, searchState: { searchState: searchState }, category: { category: category } }}>
         <SearchResultCard recipe={r} onRecipeClick={() => onRecipeClick} /></Link>)}
     </div>
   )
