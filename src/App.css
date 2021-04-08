@@ -59,7 +59,39 @@ a{
 
 .homePageMainGrid{
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(4,1fr);
+  width:97vw;
+  height: 88vh;
+  gap:1rem;
+  margin:1.5rem auto;
+}
+
+.gridImg1{
+  grid-area: 1 / 1 / span 2 / span 1;
+  background: url('../src/Assets/green.jpg') center center/cover;
+}
+
+.gridImg2{
+  grid-area: 1 / 2 / span 1 / span 1;
+  background: url('../src/Assets/cake.jpg') center center/cover;
+}
+
+.gridImg3{
+  grid-area: 1 / 3 / span 1 / span 1;
+  background: url('../src/Assets/logo.png') no-repeat center/contain;
+  background-color: white;
+  border:7px solid #25D167;
+}
+
+.gridImg4{
+  grid-area: 2 / 2 / span 1 / span 2;
+  background: url('../src/Assets/ingrdiant.jpg') no-repeat center center/cover;
+}
+
+.gridImg5{
+  grid-area: 1 / 4 / span 2 / span 1;
+  background: url('../src/Assets/pancake.jpg') center center/cover;
+  width:100%;
 }
 
 /*  -------------------------- Category Card ------------------*/
@@ -162,6 +194,7 @@ a{
   display: grid;
   grid-template-columns: repeat(3,1fr);
   gap:2rem;
+  
 }
 
 .searchStateBtnDiv{
@@ -459,4 +492,50 @@ hr{
   font-size: 2rem;
   margin: 1rem 0;
 }
+
+
+.homePageMainGrid{
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  grid-template-rows: repeat(4,1fr);
+  width:97vw;
+  height: 88vh;
+  gap:1rem;
+  margin:1.5rem auto;
+}
+
+.gridImg1{
+  grid-area: 2 / 1 / span 1 / span 1;
+  background: url('../src/Assets/green.jpg') center center/cover;
+}
+
+.gridImg2{
+  grid-area: 1 / 1 / span 2 / span 2;
+  background: url('../src/Assets/cake.jpg') center center/cover;
+}
+
+.gridImg3{
+  grid-area: 2 / 3 / span 1 / span 1;
+  background: url('../src/Assets/logo.png') no-repeat center/contain;
+  background-color: white;
+  border:7px solid #25D167;
+  z-index: 10;
+  height: 80%;
+  margin-top:15px;
+}
+
+.gridImg4{
+  grid-area: 3 / 1 / span 2 / span 3;
+  background: url('../src/Assets/ingrdiant.jpg') no-repeat center center/cover;
+}
+
+.gridImg5{
+  grid-area: 1 / 3 / span 1 / span 1;
+  background: url('../src/Assets/pancake.jpg') center center/cover;
+  width:100%;
+}
+
+
+
+
 }
