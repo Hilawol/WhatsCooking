@@ -10,7 +10,7 @@ function CategoryCard({ id, text, image, onClick, searchCatId }) {
     setShowCat(value);
   }
 
-  const catTitle = text;
+  const catTitle = <div onClick={() => { onCatClick(true) }}>{text} <i className="fas fa-chevron-up"></i></div>;
   const subCatList = <ul className="categoryCardTextGrid">
     {((categories.find(c => c.id === id)).subCat).map(cat => {
       return <li className="subCat" key={cat} > <Link className="subCat" to={{ pathname: `/recipes/collection/${id}/${cat}`, data: { category: id, subcategory: cat } }} >{cat}</Link>

@@ -128,6 +128,11 @@ a{
   transition-duration: 1s;
 }
 
+.fa-chevron-up{
+  font-size: 1.5rem;
+  margin-left: 2rem;
+}
+
 .categoryCardTextGrid{
   overflow: hidden;
   width: 100%;
@@ -408,7 +413,13 @@ hr{
   margin:1rem;
 }
 
-
+.loader{
+  background: url('../src/Assets/background.png') center center/cover;
+  width:99vw;
+  height: 80vh;
+  text-align: center;
+  font-size: 5rem;
+}
 
 /* --------------------------------------  Media Queries --------------------------------------*/
 
@@ -534,8 +545,4 @@ hr{
   background: url('../src/Assets/pancake.jpg') center center/cover;
   width:100%;
 }
-
-
-
-
 }
