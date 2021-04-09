@@ -51,10 +51,13 @@ a{
 }
 
 .navBtn:hover{
-  border-bottom: 2px solid var(--dark-green);
   font-weight: bold;
 }
 
+.currentTab{
+  border-bottom: 2px solid var(--dark-green);
+  font-weight: bold;
+}
 /*  -------------------------- HomePage ------------------*/
 
 .homePageMainGrid{
