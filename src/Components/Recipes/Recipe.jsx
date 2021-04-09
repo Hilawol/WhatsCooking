@@ -13,7 +13,19 @@ function Recipe(props) {
   const [id, setId] = useState(null);
   const [errorMsg, setErrorMsg] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [favorit, setFavorit] = useState(false);
   const history = useHistory();
+
+
+  const markFavorite = (recipe) => {
+    const recipes = JSON.parse(localStorage.getItem('favoritRecipes'));
+    if (recipes && recipes.length > 0) {
+      const r = recipes.find(rec => rec.id === recipe.id);
+      if (r) {
+        setFavorit(true);
+      }
+    }
+  }
 
   useEffect(async () => {
     const fetchRecipeInformation = async (id) => {
@@ -51,7 +63,9 @@ function Recipe(props) {
       }
       else setErrorMsg(ERROR_MSG.apiErr);
     }
+    markFavorite(recipe);
     setRecipe(recipe);
+    // setFavorit(rec)
   }, []);
 
   const parseHtmlToString = (html) => {
@@ -77,6 +91,29 @@ function Recipe(props) {
   ${window.location.href}%0D%0AHope you enjoy it!`
   }
 
+
+  const onFavoritClick = () => {
+    console.log("heart click");
+    const favRecipes = JSON.parse(localStorage.getItem('favoritRecipes'));
+    if (!favorit) { //need to add recipe to favorites
+      if (!favRecipes) { //favorites doesn't exists in localstorage - need to store it.
+        const arr = [recipe];
+        localStorage.setItem('favoritRecipes', JSON.stringify(arr));
+      }
+      else {//found favorites in localstorage. need to add the recipe
+        favRecipes.push(recipe);
+        localStorage.setItem('favoritRecipes', JSON.stringify(favRecipes));
+      }
+      setFavorit(true);
+    }
+    else { //need to remove recipe from favorites
+      const recipeIndex = favRecipes.indexOf(recipe);
+      favRecipes.splice(recipeIndex, 1);
+      localStorage.setItem('favoritRecipes', JSON.stringify(favRecipes));
+      setFavorit(false);
+    }
+  }
+
   return loading ? (<div className="loader"></div>) :
     recipe ?
       <div className="recipe">
@@ -94,6 +131,7 @@ function Recipe(props) {
             <div className="recipeActionBtns">
               <a href={`mailto:?body=${emailBody}&subject=${recipe.title}`}><i className="fas fa-envelope"></i></a>
               <a href={`whatsapp://send?text=${emailBody}`}><i className="fab fa-whatsapp"></i></a>
+              <button className="favorit" onClick={onFavoritClick}><i className={`${favorit ? 'fas' : 'far'} far fa-heart`} id="heart"></i></button>
             </div>
           </div>
         </div>
@@ -108,3 +146,4 @@ function Recipe(props) {
 
 
 export default Recipe
+

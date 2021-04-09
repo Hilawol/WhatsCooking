@@ -6,6 +6,7 @@ import RecipesPage from './Components/Recipes/RecipesPage';
 import Recipe from './Components/Recipes/Recipe'
 import SearchAllPage from './Components/Recipes/SearchAllPage';
 import SearchCollectionPage from './Components/Recipes/SearchCollectionPage';
+import FavoritesPage from './Components/Favorites/FavoritesPage'
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/recipes/all" exact component={SearchAllPage} />
           <Route path="/recipes/collection/:cat/:sub" exact component={SearchCollectionPage} />
           <Route path="/recipes/recipe/:id" exact component={Recipe} />
+          <Route path="/recipes/favorites/" exact component={FavoritesPage} />
         </div>
       </BrowserRouter>
     </div>

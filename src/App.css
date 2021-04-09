@@ -307,13 +307,17 @@ a{
   margin:3rem 0;
 }
 
-.fa-stopwatch, .fa-utensils, .fa-envelope, .fa-whatsapp{
+.favorit {
+  background-color: transparent;
+}
+
+.fa-stopwatch, .fa-utensils, .fa-envelope, .fa-whatsapp, .fa-heart{
   font-size: 2rem;
   color:var(--dark-green);
   margin:0 1rem;
 }
 
-.fa-envelope,.fa-whatsapp{
+.fa-envelope,.fa-whatsapp, .fa-heart{
   cursor: pointer;
 }
 

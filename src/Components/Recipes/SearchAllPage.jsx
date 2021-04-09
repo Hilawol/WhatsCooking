@@ -54,7 +54,7 @@ function SearchAllPage() {
     if (data) {
       if (data.results.length > 0) {
         setRecipeList(data.results);
-        sessionStorage.setItem('prevSearchAll', JSON.stringify(data));
+        sessionStorage.setItem('prevSearchAll', JSON.stringify(data.results));
       }
       else setErrorMsg(ERROR_MSG.notFound);
     }

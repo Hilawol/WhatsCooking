@@ -36,13 +36,21 @@ function SearchCollectionPage(props) {
       if (data) {
         if (data.results.length > 0) {
           setRecipeList(data.results);
-          sessionStorage.setItem('prevSearchCollection', JSON.stringify(data.results));
+          // sessionStorage.setItem('prevSearchCollection', JSON.stringify(data.results));
         }
         else setErrorMsg(ERROR_MSG.notFound);
       }
       else setErrorMsg(ERROR_MSG.apiErr);
     }
-    getRandomRecipes();
+
+    let data = JSON.parse(sessionStorage.getItem('prevSearchCollection'));
+    if (!data) {
+      getRandomRecipes();
+    }
+    else {
+      setRecipeList(data);
+    }
+
 
   }, [])
 
@@ -51,7 +59,7 @@ function SearchCollectionPage(props) {
     if (data) {
       if (data.results.length > 0) {
         setRecipeList(data.results);
-        sessionStorage.setItem('prevSearchCollection', JSON.stringify(data.results));
+        // sessionStorage.setItem('prevSearchCollection', JSON.stringify(data.results));
       }
       else setErrorMsg(ERROR_MSG.notFound);
     }
