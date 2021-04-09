@@ -1,27 +1,9 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import CategoryCard from '../HomePage/CategoryCard'
 import { categories } from './utils'
 import { Link } from 'react-router-dom'
 
 function Recipes(props) {
-
-  const [recipeList, setRecipeList] = useState([]);
-  const [searchState, setSearchState] = useState("collection"); //searchState="collection"/"all"/"category"
-  const [currentCategory, setcurrentCategory] = useState({});
-
-  useEffect(() => {
-    //When navigating back from Recipe.jsx we pull back the last search results
-
-    if (props.location.searchState) {
-      setSearchState(props.location.searchState.searchState);
-      const recipeList = JSON.parse(sessionStorage.getItem('prevRecipeList'));
-      setRecipeList(recipeList);
-    }
-    if (props.location.category) {
-      setcurrentCategory(props.location.searchState.category);
-    }
-
-  }, []);
 
   return (
 

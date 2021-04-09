@@ -14,6 +14,7 @@ function SearchCollectionPage(props) {
   const [loading, setLoading] = useState(false);
 
   const searchApi = async (url) => {
+    console.log("fetch data collection");
     setLoading(true);
     setErrorMsg(null);
     try {
@@ -50,7 +51,7 @@ function SearchCollectionPage(props) {
     if (data) {
       if (data.results.length > 0) {
         setRecipeList(data.results);
-        sessionStorage.setItem('prevSearchAll', JSON.stringify(data.results));
+        sessionStorage.setItem('prevSearchCollection', JSON.stringify(data.results));
       }
       else setErrorMsg(ERROR_MSG.notFound);
     }

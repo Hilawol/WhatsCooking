@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 import api from '../Api/api'
 import Ingredients from './Ingredients';
 import Instruction from './Instruction';
 import { ERROR_MSG } from './utils';
 import ErrMsg from './ErrMsg';
+
 
 function Recipe(props) {
 
@@ -12,10 +13,9 @@ function Recipe(props) {
   const [id, setId] = useState(null);
   const [errorMsg, setErrorMsg] = useState(null);
   const [loading, setLoading] = useState(false);
+  const history = useHistory();
 
   useEffect(async () => {
-
-    //TODO:check local storage functionality
     const fetchRecipeInformation = async (id) => {
       setLoading(true);
       try {
@@ -48,10 +48,10 @@ function Recipe(props) {
       recipe = await fetchRecipeInformation(props.match.params.id);
       if (recipe) {
         localStorage.setItem(`recipe${props.match.params.id}`, JSON.stringify(recipe));
-        setRecipe(recipe);
       }
       else setErrorMsg(ERROR_MSG.apiErr);
     }
+    setRecipe(recipe);
   }, []);
 
   const parseHtmlToString = (html) => {
@@ -80,7 +80,8 @@ function Recipe(props) {
   return loading ? (<div className="loader"></div>) :
     recipe ?
       <div className="recipe">
-        <Link to={{ pathname: '/recipes', searchState: { searchState: search }, category: { category: category } }} className="backLink"> <i className="fas fa-long-arrow-alt-left"></i> Back</Link>
+
+        <button onClick={() => history.goBack()} > <i className="fas fa-long-arrow-alt-left backLink"> Back </i> </button>
         <br />
         <div className="recipeHero">
           <div className="recipeImg" style={{ backgroundImage: `url(${recipe.image})` }}></div>

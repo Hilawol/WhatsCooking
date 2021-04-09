@@ -29,19 +29,24 @@ function SearchAllPage() {
   }
 
   useEffect(() => {
-
+    let data = JSON.parse(sessionStorage.getItem('prevSearchAll'));
     const getRandomRecipes = async () => {
-      const data = await searchApi(`recipes/random?`); //Returns random recipes.
+      data = await searchApi(`recipes/random?`); //search for random recipes.
       if (data) {
         if (data.recipes.length > 0) {
           setRecipeList(data.recipes);
-          sessionStorage.setItem('prevSearchAll', JSON.stringify(data.results));
+          sessionStorage.setItem('prevSearchAll', JSON.stringify(data.recipes));
         }
         else setErrorMsg(ERROR_MSG.notFound);
       }
       else setErrorMsg(ERROR_MSG.apiErr);
     }
-    getRandomRecipes();
+    if (!data) { //could not find data in localstorage
+      getRandomRecipes();
+    }
+    else {
+      setRecipeList(data); //setting the data from localstorage
+    }
   }, []);
 
   const onSearch = async (term) => {
@@ -49,13 +54,12 @@ function SearchAllPage() {
     if (data) {
       if (data.results.length > 0) {
         setRecipeList(data.results);
-        sessionStorage.setItem('prevSearchAll', JSON.stringify(data.results));
+        sessionStorage.setItem('prevSearchAll', JSON.stringify(data));
       }
       else setErrorMsg(ERROR_MSG.notFound);
     }
     else setErrorMsg(ERROR_MSG.apiErr);
   }
-
 
   return loading ? (<div className="loader"></div>) :
     <div>
